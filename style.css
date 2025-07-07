@@ -1,0 +1,405 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.main {
+    width: 100%;
+    height: 100vh;
+    background-image: url(images/1348691.png);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+}
+
+.title_bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10px;
+    height: 30px;
+    backdrop-filter: blur(15px);
+    position: relative;
+    box-shadow: 0 0 10px 8px;
+}
+
+.left {
+    display: flex;
+    align-items: center;
+}
+
+.hot_key {
+    width: 40px;
+    height: 10px;
+    background-color: white;
+    border-radius: 35px;
+}
+
+.point {
+    width: 8px;
+    height: 8px;
+    background-color: rgb(197, 187, 187);
+    border-radius: 50%;
+    margin-left: 5px;
+}
+
+.middle {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+}
+
+.month {
+    width: 60px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.month h3 {
+    font-family: 'Courier New', Courier, monospace;
+    color: white;
+    font-weight: 500;
+    font-size: 16px;
+}
+
+.time {
+    width: 160px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.time h3 {
+    font-family: 'Courier New', Courier, monospace;
+    color: white;
+    font-weight: 500;
+    font-size: 16px;
+}
+
+.icons ul {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    gap: 15px;
+    align-items: center;
+}
+
+.icons li {
+    position: relative;
+    display: flex;
+    align-items: center;
+    color: white;
+    cursor: default;
+    font-size: 1.1em;
+}
+
+.icons li .tooltip {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-family: 'Courier New', Courier, monospace;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.2s;
+    z-index: 100;
+}
+
+.icons li .tooltip::after {
+    content: "";
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent transparent rgba(0, 0, 0, 0.8) transparent;
+}
+
+.icons li:hover .tooltip {
+    opacity: 1;
+    visibility: visible;
+}
+
+.right {
+    display: flex;
+    justify-content: flex-end;
+    width: auto;
+    padding-right: 15px;
+}
+
+.btry {
+    color: white;
+    font-size: 1.00em;
+    font-weight: 600;
+}
+
+/* ONLY NEW ADDITION - Battery rotation */
+.battery-container {
+    display: inline-flex;
+    align-items: center;
+}
+.battery-container i {
+    transform: rotate(-90deg);
+    display: inline-block;
+}
+
+
+.icons li i {
+    transition: transform 0.2s ease-in-out;
+    display: inline-block;
+}
+
+.icons li:hover i {
+    transform: scale(1.1);
+}
+
+
+.icons li:hover .battery-container i {
+    transform: rotate(-90deg) scale(1.1);
+}
+
+.fa-clipboard-list{
+    padding-right: 25px;
+}
+
+.essentials{
+    padding-left: 17px;
+}
+.essentials ul {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    gap: 15px;
+    align-items: center;
+    margin-left: 20px; /* Space from left elements */
+}
+
+.essentials li {
+    position: relative;
+    display: flex;
+    align-items: center;
+    color: white;
+    cursor: default;
+    font-size: 1.1em;
+}
+
+.essentials li i {
+    transition: transform 0.2s ease;
+    display: inline-block;
+}
+
+.essentials li:hover i {
+    transform: scale(1.1);
+}
+
+.essentials .number {
+    color: white;
+    font-size: 1em;
+    font-weight: 600;
+    margin-left: 4px;
+}
+
+
+.essentials li .tooltip {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-family: 'Courier New', Courier, monospace;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.2s;
+    z-index: 100;
+}
+
+.essentials li .tooltip::after {
+    content: "";
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent transparent rgba(0, 0, 0, 0.8) transparent;
+}
+
+.essentials li:hover .tooltip {
+    opacity: 1;
+    visibility: visible;
+}
+
+
+
+
+/* Desktop Area */
+.desktop {
+  position: absolute;
+  width: 100%;
+  height: calc(100vh - 45px);
+  background: transparent;
+  overflow: hidden;
+  user-select: none;
+  
+}
+
+.folder-grid {
+    display: grid;
+    grid-template-rows: repeat(auto-fill, minmax(100px, 1fr));
+    gap: 20px;
+    max-width: 120px;
+}
+
+.folder-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 5px;
+    transition: all 0.2s ease;
+}
+
+.folder-icon {
+    font-size: 30px;
+    color: #707070; /* Gray folder color */
+    transition: transform 0.2s ease;
+}
+
+.folder-name {
+    color: #333;
+    font-family: 'Segoe UI', Tahoma, sans-serif;
+    font-size: 12px;
+    text-align: center;
+    margin-top: 8px;
+    padding: 3px 6px;
+    border-radius: 3px;
+    background: rgba(255, 255, 255, 0.7);
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Hover Effects */
+.folder-item:hover {
+    background: rgba(0, 0, 0, 0.05);
+}
+
+.folder-item:hover .folder-icon {
+    transform: scale(1.1);
+    color: #5a5a5a; /* Slightly darker gray on hover */
+}
+
+/* Selected State */
+.folder-item.selected {
+    background: rgba(0, 120, 215, 0.1);
+}
+
+.folder-item.selected .folder-name {
+    background: rgba(0, 120, 215, 0.2);
+}
+
+
+.doc{
+    width: 790px;
+    height: 70px;
+    position: absolute;
+    bottom: 0;
+    border-radius: 3px;
+    background: transparent;
+    backdrop-filter: blur(10px);
+    left: 50%;
+    transform: translate(-50%, -15%);
+    box-shadow: 0 0 10px 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.main_grid{
+    width: 80%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: repeat(11, 1fr);
+    gap: 5px;
+    padding-left: 10px;
+    padding-top: 5px;
+    position: absolute;
+    left: 0.5%;
+}
+
+
+
+.grid i{
+    font-size: 50px;
+    color: #707070;
+}
+
+.line{
+    width: 0.3px;
+    height: 80%;
+    background-color: rgb(255, 255, 255);
+    position: absolute;
+    right: 19%;
+    border-radius: 15px;
+    opacity: 0.5;
+}
+
+
+.grid > img{
+    width: 45px;
+    height: 45px;
+}
+
+.other_logo{
+    width: 80px;
+    height: 100%;
+    position: absolute;
+    right: 69px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 5px;
+
+}
+
+
+.div {
+    width: 80%;
+    height: 100%;
+    margin-top: 5px;
+    cursor: pointer;
+}
+
+
+.div img{
+    width: 45px;
+    height: 45px;
+}
+
+.logo{
+    transition: all 0.2s ease-in-out;
+}
+
+.logo:hover{
+    rotate: 360deg;
+    cursor: pointer;
+}
